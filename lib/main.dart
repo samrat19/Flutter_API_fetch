@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final String url = "https://swapi.co/api/films/";
+  final String url = "https://www.jasonbase.com/things/ZkBE.json";
   List data;
 
   @override
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text("Here is Json"),
+        title: Text("Doctor List"),
       ),
       body: ListView.builder(
         itemCount: data == null ? 0 : data.length,
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                   new Card(
                     child: new Container(
                       child: new Text(
-                        data[index]['title'],
+                        data[index]['name'],
                         style: TextStyle(color: Colors.blue, fontSize: 25.0),
                       ),
                       padding: EdgeInsets.all(20.0),
@@ -69,11 +69,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             onTap: () {
-              String name = data[index]['title'];
-              String producer = data[index]['producer'];
+              String name = data[index]['name'];
+              String desig = data[index]['Designation'];
+              String degree = data[index]['Degree'];
+              String dept = data[index]['Dept'];
+              String expo = data[index]['expo'];
               Navigator.of(context).push(
                   MaterialPageRoute(
-                  builder: (BuildContext context) => DetailsPage(name,producer))
+                  builder: (BuildContext context) => DetailsPart(name,desig,degree,dept,expo))
               );
             },
           );
