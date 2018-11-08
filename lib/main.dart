@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'package:flutter_app_json_local/doctor_details.dart';
+
 void main() => runApp(new MaterialApp(
       theme: new ThemeData(primarySwatch: Colors.red),
       home: new HomePage(),
@@ -66,9 +68,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            onTap: () => Scaffold
-                .of(context)
-                .showSnackBar(SnackBar(content: Text(data[index]['title']))),
+            onTap: () {
+              String name = data[index]['title'];
+              Navigator.of(context).push(
+                  MaterialPageRoute(
+                  builder: (BuildContext context) => DetailsPage(name))
+              );
+            },
           );
         },
       ),
