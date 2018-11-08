@@ -70,9 +70,10 @@ class _HomePageState extends State<HomePage> {
             ),
             onTap: () {
               String name = data[index]['title'];
+              String producer = data[index]['producer'];
               Navigator.of(context).push(
                   MaterialPageRoute(
-                  builder: (BuildContext context) => DetailsPage(name))
+                  builder: (BuildContext context) => DetailsPage(name,producer))
               );
             },
           );
