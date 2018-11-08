@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
-          return new Container(
+          return GestureDetector(
             child: new Center(
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,6 +66,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            onTap: () => Scaffold
+                .of(context)
+                .showSnackBar(SnackBar(content: Text(data[index]['title']))),
           );
         },
       ),
