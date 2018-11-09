@@ -15,6 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int currentTab = 0;
+
   final String url = "https://www.jasonbase.com/things/ZkBE.json";
   List data;
 
@@ -74,10 +77,9 @@ class _HomePageState extends State<HomePage> {
               String degree = data[index]['Degree'];
               String dept = data[index]['Dept'];
               String expo = data[index]['expo'];
-              Navigator.of(context).push(
-                  MaterialPageRoute(
-                  builder: (BuildContext context) => DetailsPart(name,desig,degree,dept,expo))
-              );
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      DetailsPart(name, desig, degree, dept, expo)));
             },
           );
         },

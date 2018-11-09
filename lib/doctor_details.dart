@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_app_json_local/patient_form.dart';
+
 class DetailsPart extends StatefulWidget {
   final String title;
   final String desig;
@@ -23,6 +25,13 @@ class _DetailsPartState extends State<DetailsPart> {
 
   _DetailsPartState(this.title, this.desig, this.degree, this.dept, this.expo);
 
+  void Patiententry() {
+    setState(() {
+      Navigator.of(context).push(new MaterialPageRoute(
+          builder: (BuildContext context) => new PatientDetail(this.title)));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +39,20 @@ class _DetailsPartState extends State<DetailsPart> {
         child: ListView(
           children: <Widget>[
             new MaterialButton(
-                onPressed: null,
+              onPressed: null,
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: Text("Name : " , style: TextStyle(color: Colors.black,fontSize: 25.0),),
+                    child: Text(
+                      "Name : ",
+                      style: TextStyle(color: Colors.black, fontSize: 25.0),
+                    ),
                   ),
                   Center(
-                    child: Text(title,style: TextStyle(color: Colors.red,fontSize: 25.0),),
+                    child: Text(
+                      title,
+                      style: TextStyle(color: Colors.red, fontSize: 25.0),
+                    ),
                   )
                 ],
               ),
@@ -47,10 +62,16 @@ class _DetailsPartState extends State<DetailsPart> {
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: Text("Designation : " , style: TextStyle(color: Colors.black,fontSize: 25.0),),
+                    child: Text(
+                      "Designation : ",
+                      style: TextStyle(color: Colors.black, fontSize: 25.0),
+                    ),
                   ),
                   Center(
-                    child: Text(desig,style: TextStyle(color: Colors.blue,fontSize: 25.0),),
+                    child: Text(
+                      desig,
+                      style: TextStyle(color: Colors.blue, fontSize: 25.0),
+                    ),
                   )
                 ],
               ),
@@ -60,10 +81,16 @@ class _DetailsPartState extends State<DetailsPart> {
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: Text("Qualification : " , style: TextStyle(color: Colors.black,fontSize: 25.0),),
+                    child: Text(
+                      "Qualification : ",
+                      style: TextStyle(color: Colors.black, fontSize: 25.0),
+                    ),
                   ),
                   Center(
-                    child: Text(degree,style: TextStyle(color: Colors.teal,fontSize: 25.0),),
+                    child: Text(
+                      degree,
+                      style: TextStyle(color: Colors.teal, fontSize: 25.0),
+                    ),
                   )
                 ],
               ),
@@ -73,10 +100,16 @@ class _DetailsPartState extends State<DetailsPart> {
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: Text("Department : " , style: TextStyle(color: Colors.black,fontSize: 25.0),),
+                    child: Text(
+                      "Department : ",
+                      style: TextStyle(color: Colors.black, fontSize: 25.0),
+                    ),
                   ),
                   Center(
-                    child: Text(dept,style: TextStyle(color: Colors.green,fontSize: 25.0),),
+                    child: Text(
+                      dept,
+                      style: TextStyle(color: Colors.green, fontSize: 25.0),
+                    ),
                   )
                 ],
               ),
@@ -86,12 +119,29 @@ class _DetailsPartState extends State<DetailsPart> {
               child: Row(
                 children: <Widget>[
                   Container(
-                    child: Text("Experience : " , style: TextStyle(color: Colors.black,fontSize: 22.0),),
+                    child: Text(
+                      "Experience : ",
+                      style: TextStyle(color: Colors.black, fontSize: 22.0),
+                    ),
                   ),
                   Center(
-                    child: Text(expo,style: TextStyle(color: Colors.deepPurple,fontSize: 20.0),),
+                    child: Text(
+                      expo,
+                      style:
+                          TextStyle(color: Colors.deepPurple, fontSize: 20.0),
+                    ),
                   )
                 ],
+              ),
+            ),
+            new MaterialButton(
+              onPressed: Patiententry,
+              padding: EdgeInsets.all(40.0),
+              color: Colors.white,
+              splashColor: Colors.lightBlue,
+              child: Text(
+                "Take Appoinment",
+                style: TextStyle(color: Colors.green, fontSize: 30.0),
               ),
             )
           ],
