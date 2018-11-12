@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+final FirebaseOptions firebaseOptions = FirebaseOptions(
+    googleAppID: '1:998027732340:android:006bb772e6403277',
+  apiKey: 'AIzaSyAvjBpihbFFvipVJQxIfnofTjm7dVceLqo',
+  databaseURL: 'https://relax-8538b.firebaseio.com',
+);
 
 class PatientDetail extends StatefulWidget {
   final String d_name;
@@ -10,6 +18,33 @@ class PatientDetail extends StatefulWidget {
 }
 
 class _PatientDetailState extends State<PatientDetail> {
+
+  List<Item> items = List();
+  Item item;
+  DatabaseReference databaseReference;
+
+  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    item = Item(""," ",  " "," ",d_name);
+
+    databaseReference = FirebaseDatabase.instance.reference().child("Patient_Details");
+  }
+
+  void handleSummit(){
+
+    final FormState formState = formkey.currentState;
+
+    if(formState.validate()){
+      formState.save();
+      formState.reset();
+      databaseReference.push().set(item.toJson());
+    }
+  }
+
   final String d_name;
 
   _PatientDetailState(this.d_name);
@@ -54,6 +89,7 @@ class _PatientDetailState extends State<PatientDetail> {
               new Container(
                 padding: const EdgeInsets.all(20.0),
                 child: new Form(
+                  key: formkey,
                   autovalidate: true,
                   child: new Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -67,6 +103,8 @@ class _PatientDetailState extends State<PatientDetail> {
                         obscureText: false,
                         controller: t1,
                         keyboardType: TextInputType.text,
+                        onSaved: (val) => item.title = val,
+                        validator: (val) => val == "" ? val : null,
                       ),
                       new Divider(),
                       new Divider(),
@@ -78,6 +116,8 @@ class _PatientDetailState extends State<PatientDetail> {
                         obscureText: false,
                         controller: t2,
                         keyboardType: TextInputType.text,
+                        onSaved: (val) => item.body = val,
+                        validator: (val) => val == "" ? val : null,
                       ),
                       new Divider(),
                       new Divider(),
@@ -89,6 +129,8 @@ class _PatientDetailState extends State<PatientDetail> {
                         obscureText: false,
                         controller: t3,
                         keyboardType: TextInputType.text,
+                        onSaved: (val) => item.day = val,
+                        validator: (val) => val == "" ? val : null,
                       ),
                       new Divider(),
                       new Divider(),
@@ -102,7 +144,7 @@ class _PatientDetailState extends State<PatientDetail> {
                         splashColor: Colors.teal,
                         textColor: Colors.white,
                         child: Text("Submit"),
-                        onPressed: (){
+                      /*  onPressed: (){
                           return showDialog(
                             context: context,
                             builder: (context) {
@@ -114,8 +156,8 @@ class _PatientDetailState extends State<PatientDetail> {
                               );
                             },
                           );
-                        },
-                        //onPressed: Patiententry1,
+                        }, */
+                        onPressed: handleSummit,
                       )
                     ],
                   ),
@@ -148,5 +190,32 @@ class _PatientDetailState extends State<PatientDetail> {
     if(b != null){
       return b;
     }
+  }
+}
+
+class Item{
+
+  String key;
+  String title;
+  String body;
+  String day;
+  String doctor;
+
+  Item(this.key, this.title, this.body,this.day, this.doctor);
+
+  Item.fromSnapshot(DataSnapshot datasnapshot) :
+        key = datasnapshot.key,
+  title = datasnapshot.value["title"],
+  body = datasnapshot.value["body"],
+  day = datasnapshot.value["day"],
+  doctor = datasnapshot.value["doctor"];
+
+  toJson(){
+    return{
+      "patient name" : title,
+      "patient syntom" : body,
+      "visiting day" : day,
+      "doctor name" : doctor ,
+    };
   }
 }

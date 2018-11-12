@@ -1,10 +1,6 @@
-# flutter_app_json_Api_fetch
+# flutter_app_json_local
 
 A new Flutter application.
-
-# my JSON Api
-
-https://www.jasonbase.com/things/ZkBE/edit
 
 ## Getting Started
 
