@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'dart:async';
+
 final FirebaseOptions firebaseOptions = FirebaseOptions(
     googleAppID: '1:998027732340:android:006bb772e6403277',
   apiKey: 'AIzaSyAvjBpihbFFvipVJQxIfnofTjm7dVceLqo',
@@ -18,6 +20,25 @@ class PatientDetail extends StatefulWidget {
 }
 
 class _PatientDetailState extends State<PatientDetail> {
+
+  DateTime date = new DateTime.now();
+
+  Future<Null> selectDate(BuildContext context) async {
+
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: date,
+      firstDate: new DateTime(2016),
+      lastDate: new DateTime(2019),
+    );
+
+    if(picked != null  && picked != date){
+      print("Date Selected ${date.toString()}");
+      setState(() {
+        date = picked;
+      });
+    }
+  }
 
   List<Item> items = List();
   Item item;
@@ -48,19 +69,6 @@ class _PatientDetailState extends State<PatientDetail> {
   final String d_name;
 
   _PatientDetailState(this.d_name);
-
-  final TextEditingController t1 = TextEditingController();
-  final TextEditingController t2 = TextEditingController();
-  final TextEditingController t3 =  TextEditingController();
-
-  @override
-  void dispose() {
-    // Clean up the controller when the Widget is disposed
-    t1.dispose();
-    t2.dispose();
-    t3.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +109,6 @@ class _PatientDetailState extends State<PatientDetail> {
                           hintText: "Johney Depp"
                         ),
                         obscureText: false,
-                        controller: t1,
                         keyboardType: TextInputType.text,
                         onSaved: (val) => item.title = val,
                         validator: (val) => val == "" ? val : null,
@@ -114,7 +121,6 @@ class _PatientDetailState extends State<PatientDetail> {
                             hintText: "Abdomen pain"
                         ),
                         obscureText: false,
-                        controller: t2,
                         keyboardType: TextInputType.text,
                         onSaved: (val) => item.body = val,
                         validator: (val) => val == "" ? val : null,
@@ -127,11 +133,15 @@ class _PatientDetailState extends State<PatientDetail> {
                             hintText: "choose Monday or Wednesday or Friday"
                         ),
                         obscureText: false,
-                        controller: t3,
                         keyboardType: TextInputType.text,
                         onSaved: (val) => item.day = val,
                         validator: (val) => val == "" ? val : null,
                       ),
+                      Text("Date Selected ${date.toString()}"),
+                      new RaisedButton(
+                          child: Text("choose date"),
+                          onPressed: (){selectDate(context);
+                          }),
                       new Divider(),
                       new Divider(),
                       new Padding(
@@ -144,19 +154,6 @@ class _PatientDetailState extends State<PatientDetail> {
                         splashColor: Colors.teal,
                         textColor: Colors.white,
                         child: Text("Submit"),
-                      /*  onPressed: (){
-                          return showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Text("Dear "+namecheck(t1.text)+","
-                                    +" your Appointment is fixed with doctor $d_name on "+daycheck(t3.text)+","
-                                    + " for your "+synCheck(t2.text),
-                                  style: TextStyle(color: Colors.black,fontSize: 20.0),),
-                              );
-                            },
-                          );
-                        }, */
                         onPressed: handleSummit,
                       )
                     ],
