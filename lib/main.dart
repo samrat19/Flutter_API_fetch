@@ -8,6 +8,7 @@ import 'package:flutter_app_json_local/sixth.dart';
 void main() => runApp(new MaterialApp(
       theme: new ThemeData(primarySwatch: Colors.red),
       home: new MyPage(),
+      debugShowCheckedModeBanner: false,
     ));
 
 class MyPage extends StatefulWidget {
@@ -15,13 +16,11 @@ class MyPage extends StatefulWidget {
   _MyPageState createState() => _MyPageState();
 }
 
-class _MyPageState extends State<MyPage>  with SingleTickerProviderStateMixin{
-
-
+class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   TabController tabController;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     tabController = TabController(length: 5, vsync: this);
   }
@@ -31,14 +30,7 @@ class _MyPageState extends State<MyPage>  with SingleTickerProviderStateMixin{
     return new Scaffold(
       body: TabBarView(
           controller: tabController,
-          children: <Widget>[
-            HomePage(),
-            Ortho(),
-            Eye(),
-            Brain(),
-            Skin()
-          ]
-      ),
+          children: <Widget>[Second(), Third(), Fourth(), Fifth(), Sixth()]),
     );
   }
 }

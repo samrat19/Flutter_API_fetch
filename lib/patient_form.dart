@@ -21,25 +21,6 @@ class PatientDetail extends StatefulWidget {
 
 class _PatientDetailState extends State<PatientDetail> {
 
-  DateTime date = new DateTime.now();
-
-  Future<Null> selectDate(BuildContext context) async {
-
-    final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: date,
-      firstDate: new DateTime(2016),
-      lastDate: new DateTime(2019),
-    );
-
-    if(picked != null  && picked != date){
-      print("Date Selected ${date.toString()}");
-      setState(() {
-        date = picked;
-      });
-    }
-  }
-
   List<Item> items = List();
   Item item;
   DatabaseReference databaseReference;
@@ -137,11 +118,6 @@ class _PatientDetailState extends State<PatientDetail> {
                         onSaved: (val) => item.day = val,
                         validator: (val) => val == "" ? val : null,
                       ),
-                      Text("Date Selected ${date.toString()}"),
-                      new RaisedButton(
-                          child: Text("choose date"),
-                          onPressed: (){selectDate(context);
-                          }),
                       new Divider(),
                       new Divider(),
                       new Padding(
