@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_app_json_local/patient_form.dart';
+import 'package:flutter_app_json_local/datechoose.dart';
 
 class DetailsPart extends StatefulWidget {
   final String title;
@@ -8,12 +9,13 @@ class DetailsPart extends StatefulWidget {
   final String degree;
   final String dept;
   final String expo;
+  final String timing;
 
-  DetailsPart(this.title, this.desig, this.degree, this.dept, this.expo);
+  DetailsPart(this.title, this.desig, this.degree, this.dept, this.expo,this.timing);
 
   @override
   _DetailsPartState createState() => _DetailsPartState(
-      this.title, this.desig, this.degree, this.dept, this.expo);
+      this.title, this.desig, this.degree, this.dept, this.expo,this.timing);
 }
 
 class _DetailsPartState extends State<DetailsPart> {
@@ -22,13 +24,14 @@ class _DetailsPartState extends State<DetailsPart> {
   final String degree;
   final String dept;
   final String expo;
+  final String timing;
 
-  _DetailsPartState(this.title, this.desig, this.degree, this.dept, this.expo);
+  _DetailsPartState(this.title, this.desig, this.degree, this.dept, this.expo,this.timing);
 
   void Patiententry() {
     setState(() {
       Navigator.of(context).push(new MaterialPageRoute(
-          builder: (BuildContext context) => new PatientDetail(this.title)));
+          builder: (BuildContext context) => new DateChoose(this.timing,this.title)));
     });
   }
 

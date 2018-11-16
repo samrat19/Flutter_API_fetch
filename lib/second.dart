@@ -186,9 +186,10 @@ class _HomePageState extends State<HomePage> {
                 String degree = data[index]['Degree'];
                 String dept = data[index]['Dept'];
                 String expo = data[index]['expo'];
+                String date = data[index]['date'];
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        DetailsPart(name, desig, degree, dept, expo)));
+                        DetailsPart(name, desig, degree, dept, expo,date)));
               },
             );
           },

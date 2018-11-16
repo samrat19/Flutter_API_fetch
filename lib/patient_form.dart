@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'dart:async';
 
 final FirebaseOptions firebaseOptions = FirebaseOptions(
     googleAppID: '1:998027732340:android:006bb772e6403277',
@@ -12,11 +11,12 @@ final FirebaseOptions firebaseOptions = FirebaseOptions(
 
 class PatientDetail extends StatefulWidget {
   final String d_name;
+  final String doc_date;
 
-  PatientDetail(this.d_name);
+  PatientDetail(this.d_name,this.doc_date);
 
   @override
-  _PatientDetailState createState() => _PatientDetailState(this.d_name);
+  _PatientDetailState createState() => _PatientDetailState(this.d_name,this.doc_date);
 }
 
 class _PatientDetailState extends State<PatientDetail> {
@@ -31,7 +31,7 @@ class _PatientDetailState extends State<PatientDetail> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    item = Item(""," ",  " "," ",d_name);
+    item = Item(""," ",  " ",doc_date,d_name);
 
     databaseReference = FirebaseDatabase.instance.reference().child("Patient_Details");
   }
@@ -48,8 +48,9 @@ class _PatientDetailState extends State<PatientDetail> {
   }
 
   final String d_name;
+  final String doc_date;
 
-  _PatientDetailState(this.d_name);
+  _PatientDetailState(this.d_name,this.doc_date);
 
   @override
   Widget build(BuildContext context) {
@@ -108,16 +109,6 @@ class _PatientDetailState extends State<PatientDetail> {
                       ),
                       new Divider(),
                       new Divider(),
-                      new TextFormField(
-                        decoration: new InputDecoration(
-                            labelText: "When you will Visit",
-                            hintText: "choose Monday or Wednesday or Friday"
-                        ),
-                        obscureText: false,
-                        keyboardType: TextInputType.text,
-                        onSaved: (val) => item.day = val,
-                        validator: (val) => val == "" ? val : null,
-                      ),
                       new Divider(),
                       new Divider(),
                       new Padding(
