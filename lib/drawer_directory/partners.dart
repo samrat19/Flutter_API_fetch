@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_app_json_local/customWidgets/partner.dart';
+
 class Branches extends StatefulWidget {
 
   final String dept;
@@ -19,7 +21,15 @@ class _BranchesState extends State<Branches> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(this.dept),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.red,
+      ),
+      body: ListView(
+        children: <Widget>[
+          CustomPartner("Techno India University"),
+          CustomPartner("Coco Cola"),
+          CustomPartner("Royal Stag"),
+          CustomPartner("Jonny Walker"),
+        ],
       ),
     );
   }

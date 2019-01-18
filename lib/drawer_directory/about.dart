@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_app_json_local/customWidgets/about.dart';
+
 class About extends StatefulWidget {
 
   final String dept;
@@ -19,7 +21,13 @@ class _AboutState extends State<About> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(this.dept),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
+      ),
+      body: ListView(
+        children: <Widget>[
+          CustomAbout("Atri Das", "161001001265"),
+          CustomAbout("Ritam Chakraborty", "161001001070"),
+        ],
       ),
     );
   }

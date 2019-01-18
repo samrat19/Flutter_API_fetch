@@ -19,7 +19,7 @@ class _HodState extends State<Hod> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(this.dept),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.red,
       ),
     );
   }

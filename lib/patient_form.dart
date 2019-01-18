@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 
 final FirebaseOptions firebaseOptions = FirebaseOptions(
-    googleAppID: '1:998027732340:android:006bb772e6403277',
+  googleAppID: '1:998027732340:android:006bb772e6403277',
   apiKey: 'AIzaSyAvjBpihbFFvipVJQxIfnofTjm7dVceLqo',
   databaseURL: 'https://relax-8538b.firebaseio.com',
 );
