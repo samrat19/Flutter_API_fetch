@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_json_local/second.dart';
-import 'package:flutter_app_json_local/third.dart';
-import 'package:flutter_app_json_local/fouth.dart';
-import 'package:flutter_app_json_local/fifth.dart';
-import 'package:flutter_app_json_local/sixth.dart';
+import 'package:flutter_app_json_local/departments/first.dart';
+import 'package:flutter_app_json_local/departments/second.dart';
+import 'package:flutter_app_json_local/departments/third.dart';
+import 'package:flutter_app_json_local/departments/fourth.dart';
+import 'package:flutter_app_json_local/departments/fifth.dart';
 
 void main() => runApp(new MaterialApp(
-      theme: new ThemeData(primarySwatch: Colors.red),
+      theme: new ThemeData(
+        primaryColor: Colors.red,
+        accentColor: Colors.redAccent
+      ),
       home: new MyPage(),
       debugShowCheckedModeBanner: false,
     ));
@@ -27,10 +30,17 @@ class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: TabBarView(
-          controller: tabController,
-          children: <Widget>[Second(), Third(), Fourth(), Fifth(), Sixth()]),
+    return Material(
+      child: TabBarView(
+        controller: tabController,
+        children: <Widget>[
+          Cardio(),
+          Ortho(),
+          Optha(),
+          Nuro(),
+          Darma()
+        ]
+      ),
     );
   }
 }
