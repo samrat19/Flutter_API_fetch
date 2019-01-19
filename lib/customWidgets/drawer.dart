@@ -12,100 +12,103 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        ListTile(
-          title: Text(
-            "Departments",
-            style: TextStyle(
-              fontSize: _fontSize,
-              color: Colors.redAccent
-            ),
-          ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Department("Departments")));
-          },
-        ),
-        ListTile(
-          title: Text(
-            "Hospitality",
-            style: TextStyle(
+    return Container(
+      color: Colors.redAccent,
+      child: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text(
+              "Departments",
+              style: TextStyle(
                 fontSize: _fontSize,
-                color: Colors.redAccent
+                color: Colors.white
+              ),
             ),
+            leading: Icon(Icons.chevron_right, color: Colors.white),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new Department("Departments")));
+            },
           ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Hospitality("Hospitality")));
-          },
-        ),
-        ListTile(
-          title: Text(
-            "HODs",
-            style: TextStyle(
-                fontSize: _fontSize,
-                color: Colors.redAccent
+          ListTile(
+            title: Text(
+              "Hospitality",
+              style: TextStyle(
+                  fontSize: _fontSize,
+                  color: Colors.white
+              ),
             ),
+            leading: Icon(Icons.chevron_right, color: Colors.white,),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new Hospitality("Hospitality")));
+            },
           ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Hod("Head of the Departements")));
-          },
-        ),
-        ListTile(
-          title: Text(
-            "Location",
-            style: TextStyle(
-                fontSize: _fontSize,
-                color: Colors.redAccent
+          ListTile(
+            title: Text(
+              "HODs",
+              style: TextStyle(
+                  fontSize: _fontSize,
+                  color: Colors.white
+              ),
             ),
+            leading: Icon(Icons.chevron_right, color: Colors.white,),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new Hod("Head of the Departements")));
+            },
           ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Location("Location")));
-          },
-        ),
-        ListTile(
-          title: Text(
-            "Parters",
-            style: TextStyle(
-                fontSize: _fontSize,
-                color: Colors.redAccent
+          ListTile(
+            title: Text(
+              "Location",
+              style: TextStyle(
+                  fontSize: _fontSize,
+                  color: Colors.white
+              ),
             ),
+            leading: Icon(Icons.chevron_right, color: Colors.white,),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new Location("Location")));
+            },
           ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Branches("Partners")));
-          },
-        ),
-        ListTile(
-          title: Text(
-            "About",
-            style: TextStyle(
-                fontSize: _fontSize,
-                color: Colors.redAccent
+          ListTile(
+            title: Text(
+              "Parters",
+              style: TextStyle(
+                  fontSize: _fontSize,
+                  color: Colors.white
+              ),
             ),
+            leading: Icon(Icons.chevron_right, color: Colors.white,),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new Branches("Partners")));
+            },
           ),
-          leading: Icon(Icons.chevron_right),
-          onTap: () {
-            Navigator.of(context).pop();
-            //  Navigator.of(context).pushNamed("/a");
-            Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new About("About US")));
-          },
-        )
-      ],
+          ListTile(
+            title: Text(
+              "About",
+              style: TextStyle(
+                  fontSize: _fontSize,
+                  color: Colors.white
+              ),
+            ),
+            leading: Icon(Icons.chevron_right, color: Colors.white,),
+            onTap: () {
+              Navigator.of(context).pop();
+              //  Navigator.of(context).pushNamed("/a");
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new About("About US")));
+            },
+          )
+        ],
+      ),
     );
   }
 }
