@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_app_json_local/patient_form.dart';
+import 'package:flutter_app_json_local/customWidgets/dateTile.dart';
 
 class DateChoose extends StatelessWidget {
 
@@ -14,9 +15,10 @@ class DateChoose extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Choose a Date "),
+        title: Text("Choose Date"),
       ),
       body: DateList(this.doc_date,this.doc_name),
+      backgroundColor: Colors.red[50],
     );
   }
 }
@@ -54,7 +56,7 @@ class _DateListState extends State<DateList> {
         Uri.encodeFull(doc_date),
         headers: {"Accept": "application/json"});
 
-    print(response.body);
+//    print(response.body);
 
     setState(() {
       var convertDataToJson = json.decode(response.body);
@@ -67,49 +69,25 @@ class _DateListState extends State<DateList> {
 
   @override
   Widget build(BuildContext context) {
-    if(isdataloaed == false){
-      return Scaffold(
-        backgroundColor: Colors.white,
-        body: new Center(
-          child: CircularProgressIndicator(
-            backgroundColor: Colors.pink,
-            strokeWidth: 6.0,
-          ),
-        ),
-      );
-    }else{
-      return new Scaffold(
-        body: ListView.builder(
-          itemCount: data == null ? 0 : data.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              child: new Center(
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    new Card(
-                      child: new Container(
-                        child: new Text(
-                          data[index]['avl'],
-                          style: TextStyle(color: Colors.blue, fontSize: 25.0),
-                        ),
-                        padding: EdgeInsets.all(20.0),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              onTap: () {
-                String date = data[index]['avl'];
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        PatientDetail(doc_name, date)));
-              },
-            );
+    return isdataloaed ? ListView.builder(
+      itemCount: data == null ? 0 : data.length,
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+          child: CustomDateTile(data[index]['avl']),
+          onTap: () {
+            String date = data[index]['avl'];
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    PatientDetail(doc_name, date)));
           },
-        ),
-      );
-    }
+        );
+      },
+    ) : Center(
+      child: CircularProgressIndicator(
+        backgroundColor: Colors.pink,
+        strokeWidth: 6.0,
+      ),
+    );
   }
 }
 

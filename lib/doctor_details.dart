@@ -68,18 +68,18 @@ class _DetailsPartState extends State<DetailsPart> {
   Widget _appoinmentButton() => Padding(
     padding: const EdgeInsets.all(40.0),
     child: RaisedButton(
+      padding: EdgeInsets.all(10.0),
       color: Colors.redAccent,
       splashColor: Colors.pinkAccent,
       elevation: 10.0,
       shape: BeveledRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      onPressed: Patiententry,
-      padding: EdgeInsets.all(10.0),
       child: Text(
         "Take Appoinment",
         style: TextStyle(color: Colors.white, fontSize: 24.0),
       ),
+      onPressed: Patiententry,
     ),
   );
 }
