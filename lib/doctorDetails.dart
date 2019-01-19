@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_app_json_local/patient_form.dart';
+import 'package:flutter_app_json_local/patientForm.dart';
 import 'package:flutter_app_json_local/datechoose.dart';
-import 'package:flutter_app_json_local/customWidgets/doctorDetails.dart';
+import 'package:flutter_app_json_local/customWidgets/doctorDetailsTile.dart';
 
 class DetailsPart extends StatefulWidget {
   final String title;
@@ -53,7 +53,7 @@ class _DetailsPartState extends State<DetailsPart> {
         title: Text("Doctor Details"),
         backgroundColor: Colors.red,
       ),
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.red[50],
       body: Material(
         child: ListView(
           children: <Widget>[

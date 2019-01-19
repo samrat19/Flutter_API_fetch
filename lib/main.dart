@@ -46,6 +46,7 @@ class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
         appBar: AppBar(
           title: Text("Health Care"),
         ),
+        backgroundColor: Colors.red[50],
         drawer: Drawer(
           child: CustomDrawer(),
         ),

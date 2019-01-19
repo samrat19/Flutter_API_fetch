@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter_app_json_local/customWidgets/doctorsList.dart';
-import 'package:flutter_app_json_local/doctor_details.dart';
+import 'package:flutter_app_json_local/doctorDetails.dart';
 import 'package:flutter_app_json_local/departments/second.dart';
 
 
