@@ -16,7 +16,7 @@ class CustomDoctorTile extends StatelessWidget {
         color: Colors.red[700],
         borderRadius: BorderRadius.circular(10.0),
         gradient: new LinearGradient(
-          colors: [Colors.red, Colors.pinkAccent],
+          colors: [Colors.red, Colors.pink],
         ),
       ),
       child: Center(

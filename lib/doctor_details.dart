@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app_json_local/patient_form.dart';
 import 'package:flutter_app_json_local/datechoose.dart';
+import 'package:flutter_app_json_local/customWidgets/doctorDetails.dart';
 
 class DetailsPart extends StatefulWidget {
   final String title;
@@ -37,123 +38,48 @@ class _DetailsPartState extends State<DetailsPart> {
 
   @override
   Widget build(BuildContext context) {
+
+    List _details = [
+      title,
+      desig,
+      degree,
+      dept,
+      expo,
+      timing
+    ];
+
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Doctor Details"),
+        backgroundColor: Colors.red,
+      ),
+      backgroundColor: Colors.white70,
       body: Material(
         child: ListView(
           children: <Widget>[
-            new MaterialButton(
-              onPressed: null,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      "Name : ",
-                      style: TextStyle(color: Colors.black, fontSize: 25.0),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      title,
-                      style: TextStyle(color: Colors.red, fontSize: 25.0),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            new MaterialButton(
-              onPressed: null,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      "Designation : ",
-                      style: TextStyle(color: Colors.black, fontSize: 25.0),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      desig,
-                      style: TextStyle(color: Colors.blue, fontSize: 25.0),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            new MaterialButton(
-              onPressed: null,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      "Qualification : ",
-                      style: TextStyle(color: Colors.black, fontSize: 25.0),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      degree,
-                      style: TextStyle(color: Colors.teal, fontSize: 25.0),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            new MaterialButton(
-              onPressed: null,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      "Department : ",
-                      style: TextStyle(color: Colors.black, fontSize: 25.0),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      dept,
-                      style: TextStyle(color: Colors.green, fontSize: 25.0),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            new MaterialButton(
-              onPressed: null,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      "Experience : ",
-                      style: TextStyle(color: Colors.black, fontSize: 22.0),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      expo,
-                      style:
-                          TextStyle(color: Colors.deepPurple, fontSize: 20.0),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            new MaterialButton(
-              onPressed: Patiententry,
-              padding: EdgeInsets.all(40.0),
-              color: Colors.white,
-              splashColor: Colors.lightBlue,
-              child: Text(
-                "Take Appoinment",
-                style: TextStyle(color: Colors.green, fontSize: 30.0),
-              ),
-            )
+            CustomDoctorDetails(_details),
+            _appoinmentButton(),
           ],
         ),
       ),
-      appBar: AppBar(
-        title: Text("Doctor Details"),
-        backgroundColor: Colors.deepPurple,
-      ),
     );
   }
+
+  Widget _appoinmentButton() => Padding(
+    padding: const EdgeInsets.all(40.0),
+    child: RaisedButton(
+      color: Colors.redAccent,
+      splashColor: Colors.pinkAccent,
+      elevation: 10.0,
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      onPressed: Patiententry,
+      padding: EdgeInsets.all(10.0),
+      child: Text(
+        "Take Appoinment",
+        style: TextStyle(color: Colors.white, fontSize: 24.0),
+      ),
+    ),
+  );
 }
