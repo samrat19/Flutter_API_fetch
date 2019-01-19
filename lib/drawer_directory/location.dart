@@ -20,7 +20,7 @@ class _LocationState extends State<Location> {
     return Scaffold(
       appBar: AppBar(
         title: Text(this.dept),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
       ),
       backgroundColor: Colors.red[50],
     );
