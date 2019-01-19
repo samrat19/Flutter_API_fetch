@@ -42,7 +42,7 @@ class _EyeState extends State<Eye> {
         Uri.encodeFull(url),
         headers: {"Accept": "application/json"});
 
-    print(response.body);
+//    print(response.body);
 
     setState(() {
       var convertDataToJson = json.decode(response.body);

@@ -8,13 +8,14 @@ import 'package:flutter_app_json_local/departments/fourth.dart';
 import 'package:flutter_app_json_local/departments/fifth.dart';
 
 void main() => runApp(new MaterialApp(
-      theme: new ThemeData(
-        primaryColor: Colors.red,
-        accentColor: Colors.redAccent
-      ),
-      home: new MyPage(),
-      debugShowCheckedModeBanner: false,
-    ));
+  title: "Heath Care",
+  theme: new ThemeData(
+    primaryColor: Colors.red,
+    accentColor: Colors.redAccent
+  ),
+  home: new MyPage(),
+  debugShowCheckedModeBanner: false,
+));
 
 class MyPage extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
     return Material(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Health Care App"),
+          title: Text("Health Care"),
         ),
         drawer: Drawer(
           child: CustomDrawer(),
