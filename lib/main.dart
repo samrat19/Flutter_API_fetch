@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_app_json_local/customWidgets/drawer.dart';
 import 'package:flutter_app_json_local/departments/first.dart';
 import 'package:flutter_app_json_local/departments/second.dart';
 import 'package:flutter_app_json_local/departments/third.dart';
@@ -21,6 +23,14 @@ class MyPage extends StatefulWidget {
 
 class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   TabController tabController;
+  int _currentPage = 0;
+  final _pages = [
+    Cardio(),
+    Ortho(),
+    Optha(),
+    Nuro(),
+    Darma()
+  ];
 
   @override
   void initState() {
@@ -31,15 +41,53 @@ class _MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: TabBarView(
-        controller: tabController,
-        children: <Widget>[
-          Cardio(),
-          Ortho(),
-          Optha(),
-          Nuro(),
-          Darma()
-        ]
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Health Care App"),
+        ),
+        drawer: Drawer(
+          child: CustomDrawer(),
+        ),
+        body: _pages[_currentPage],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentPage,
+          onTap: (int index) {
+            setState(() {
+              _currentPage = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite, color: Colors.red,),
+              title: Text("Cardiology" , style: TextStyle(color: Colors.red))
+            ),BottomNavigationBarItem(
+                icon: Icon(Icons.accessible_forward, color: Colors.red,),
+                title: Text("Orthopedic", style: TextStyle(color: Colors.red))
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.remove_red_eye, color: Colors.red,),
+                title: Text("Opthalmology", style: TextStyle(color: Colors.red))
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.face,  color: Colors.red,),
+                title: Text("Nurology", style: TextStyle(color: Colors.red))
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.content_cut, color: Colors.red,),
+                title: Text("Darmatology", style: TextStyle(color: Colors.red))
+            ),
+          ],
+        ),
+//        body: TabBarView(
+//          controller: tabController,
+//          children: <Widget>[
+//            Cardio(),
+//            Ortho(),
+//            Optha(),
+//            Nuro(),
+//            Darma()
+//          ]
+//        ),
       ),
     );
   }

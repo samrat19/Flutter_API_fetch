@@ -10,13 +10,6 @@ class Darma extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Skin"),
-        backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: CustomDrawer(),
-      ),
       body : Skin(),
     );
   }

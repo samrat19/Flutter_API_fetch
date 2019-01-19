@@ -11,13 +11,6 @@ class Ortho extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Orthopedic"),
-        backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: CustomDrawer(),
-      ),
       body : Orthopedic(),
     );
   }

@@ -10,13 +10,6 @@ class Optha extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Optical"),
-        backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: CustomDrawer(),
-      ),
       body : Eye(),
     );
   }

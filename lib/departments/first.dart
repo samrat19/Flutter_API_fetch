@@ -2,22 +2,15 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_app_json_local/customWidgets/drawer.dart';
 import 'package:flutter_app_json_local/customWidgets/doctorsList.dart';
 import 'package:flutter_app_json_local/doctor_details.dart';
+import 'package:flutter_app_json_local/departments/second.dart';
 
 
 class Cardio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("CardioLogist"),
-        backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: CustomDrawer(),
-      ),
       body : HomePage(),
     );
   }
