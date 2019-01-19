@@ -68,7 +68,7 @@ class _HospitalityState extends State<Hospitality> {
     return Text(
       string,
       style: TextStyle(
-        color: Colors.red[900],
+        color: Colors.red[700],
         fontWeight: FontWeight.bold,
         fontSize: 20.0,
       ),
