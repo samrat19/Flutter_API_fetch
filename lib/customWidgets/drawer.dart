@@ -31,6 +31,7 @@ class CustomDrawer extends StatelessWidget {
                   builder: (BuildContext context) => new Department("Departments")));
             },
           ),
+          Divider(),
           ListTile(
             title: Text(
               "Hospitality",
@@ -46,21 +47,24 @@ class CustomDrawer extends StatelessWidget {
                   builder: (BuildContext context) => new Hospitality("Hospitality")));
             },
           ),
-          ListTile(
-            title: Text(
-              "HODs",
-              style: TextStyle(
-                  fontSize: _fontSize,
-                  color: Colors.white
-              ),
-            ),
-            leading: Icon(Icons.chevron_right, color: Colors.white,),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(new MaterialPageRoute(
-                  builder: (BuildContext context) => new Hod("Head of the Departements")));
-            },
-          ),
+          Divider(),
+          // TODO: Man I don't want to add HODs
+//          ListTile(
+//            title: Text(
+//              "HODs",
+//              style: TextStyle(
+//                  fontSize: _fontSize,
+//                  color: Colors.white
+//              ),
+//            ),
+//            leading: Icon(Icons.chevron_right, color: Colors.white,),
+//            onTap: () {
+//              Navigator.of(context).pop();
+//              Navigator.of(context).push(new MaterialPageRoute(
+//                  builder: (BuildContext context) => new Hod("Head of the Departements")));
+//            },
+//          ),
+//          Divider();
           ListTile(
             title: Text(
               "Location",
@@ -76,6 +80,7 @@ class CustomDrawer extends StatelessWidget {
                   builder: (BuildContext context) => new Location("Location")));
             },
           ),
+          Divider(),
           ListTile(
             title: Text(
               "Parters",
@@ -91,6 +96,7 @@ class CustomDrawer extends StatelessWidget {
                   builder: (BuildContext context) => new Branches("Partners")));
             },
           ),
+          Divider(),
           ListTile(
             title: Text(
               "About",
