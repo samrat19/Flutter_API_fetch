@@ -22,6 +22,7 @@ class _LocationState extends State<Location> {
         title: Text(this.dept),
         backgroundColor: Colors.blue,
       ),
+      backgroundColor: Colors.red[50],
     );
   }
 }

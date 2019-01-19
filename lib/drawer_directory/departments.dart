@@ -31,6 +31,7 @@ class _DepartmentState extends State<Department> {
       appBar: AppBar(title: Text(this.dept),
         backgroundColor: Colors.redAccent,
       ),
+      backgroundColor: Colors.red[50],
       body: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[

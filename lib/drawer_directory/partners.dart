@@ -23,6 +23,7 @@ class _BranchesState extends State<Branches> {
       appBar: AppBar(title: Text(this.dept),
         backgroundColor: Colors.red,
       ),
+      backgroundColor: Colors.red[50],
       body: ListView(
         children: <Widget>[
           CustomPartner("Techno India University"),
