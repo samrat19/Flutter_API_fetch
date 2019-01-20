@@ -6,6 +6,8 @@ import 'package:flutter_app_json_local/doctorDetails.dart';
 import 'package:flutter_app_json_local/customWidgets/drawer.dart';
 import 'package:flutter_app_json_local/customWidgets/doctorsList.dart';
 
+import 'package:flutter_app_json_local/splashScreen.dart';
+
 
 class Ortho extends StatelessWidget {
   @override
@@ -26,7 +28,7 @@ class _OrthopedicState extends State<Orthopedic> {
 
   int currentTab = 0;
 
-  final String url = "https://www.jasonbase.com/things/ZkBE.json";
+  final String url = "https://www.jasonbase.com/things/XgRA.json";
   List data;
   bool isdataloaed = false;
 
@@ -86,4 +88,11 @@ class _OrthopedicState extends State<Orthopedic> {
       ),
     );
   }
+}
+
+Widget _getImageAsset() {
+  AssetImage assetImage = AssetImage('images/logo.png');
+  Image image = Image(image: assetImage);
+
+  return Container(child: image,);
 }

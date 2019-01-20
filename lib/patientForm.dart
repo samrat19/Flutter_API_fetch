@@ -88,57 +88,65 @@ class _PatientDetailState extends State<PatientDetail> {
           Container(
             margin: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 20.0),
             padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: "Name",
-                    hintText: "Enter Name e.g. Atri Das",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(
-                        color: Colors.redAccent,
-                        width: 2.0
-                      )
-                    ),
-                  ),
-                  onSaved: (val) => item.title = val,
-                  validator: (val) => val == "" ? val : null,
-                ),
-                SizedBox(height: 20.0,),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: "Symptom",
-                    hintText: "Enter Symptom e.g. Back Pain",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(
+            child: Form(
+              key: formkey,
+              autovalidate: true,
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Name",
+                      hintText: "Enter Name e.g. Atri Das",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
                           color: Colors.redAccent,
                           width: 2.0
+                        )
+                      ),
+                    ),
+                    onSaved: (val) => item.title = val,
+                    validator: (val) => val == "" ? val : null,
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
+                  ),
+                  SizedBox(height: 20.0,),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Symptom",
+                      hintText: "Enter Symptom e.g. Back Pain",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                        borderSide: BorderSide(
+                            color: Colors.redAccent,
+                            width: 2.0
+                        )
                       )
-                    )
-                  ),
-                  onSaved: (val) => item.body = val,
-                  validator: (val) => val == "" ? val : null,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: RaisedButton(
-                    padding: EdgeInsets.all(10.0),
-                    color: Colors.redAccent,
-                    splashColor: Colors.pinkAccent,
-                    elevation: 10.0,
-                    shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                    child: Text(
-                      "Submit",
-                      style: TextStyle(color: Colors.white, fontSize: 24.0),
-                    ),
-                    onPressed: handleSummit,
+                    onSaved: (val) => item.body = val,
+                    validator: (val) => val == "" ? val : null,
+                    obscureText: false,
+                    keyboardType: TextInputType.text,
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(40.0),
+                    child: RaisedButton(
+                      padding: EdgeInsets.all(10.0),
+                      color: Colors.redAccent,
+                      splashColor: Colors.pinkAccent,
+                      elevation: 10.0,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Text(
+                        "Submit",
+                        style: TextStyle(color: Colors.white, fontSize: 24.0),
+                      ),
+                      onPressed: handleSummit,
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ]

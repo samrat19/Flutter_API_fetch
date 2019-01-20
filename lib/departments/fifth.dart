@@ -25,7 +25,7 @@ class _SkinState extends State<Skin> {
 
   int currentTab = 0;
 
-  final String url = "https://www.jasonbase.com/things/ZkBE.json";
+  final String url = "https://www.jasonbase.com/things/4jRK.json";
   List data;
   bool isdataloaed = false;
 

@@ -25,7 +25,7 @@ class _BrainState extends State<Brain> {
 
   int currentTab = 0;
 
-  final String url = "https://www.jasonbase.com/things/ZkBE.json";
+  final String url = "https://www.jasonbase.com/things/DBmG.json";
   List data;
   bool isdataloaed = false;
 

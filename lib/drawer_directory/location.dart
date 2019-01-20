@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class Location extends StatefulWidget {
 
@@ -17,12 +18,12 @@ class _LocationState extends State<Location> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WebviewScaffold(
       appBar: AppBar(
         title: Text(this.dept),
         backgroundColor: Colors.red,
       ),
-      backgroundColor: Colors.red[50],
+      url: "https://www.google.com/maps/place/Apollo+Gleneagles+Hospitals/@22.5748302,88.4014062,15z/data=!4m5!3m4!1s0x0:0x8b1403320baa41d4!8m2!3d22.5748302!4d88.4014062",
     );
   }
 }

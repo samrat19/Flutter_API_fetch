@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app_json_local/splashScreen.dart';
 
+import 'package:flutter_app_json_local/departments/second.dart';
+import 'package:flutter_app_json_local/homePage.dart';
+
 void main() => runApp(new MaterialApp(
   title: "Heath Care",
   debugShowCheckedModeBanner: false,
