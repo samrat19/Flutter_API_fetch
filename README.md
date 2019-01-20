@@ -25,3 +25,7 @@ Health Care Application integrated with Firebass and API Fetch.
 ## Departments 
 
 ![_20190120_221418](https://user-images.githubusercontent.com/30453784/51442337-c80d5300-1d01-11e9-8a59-0781067560b1.jpg)
+
+All UI stuff Done by
+
+## Ritam Chakraborty
