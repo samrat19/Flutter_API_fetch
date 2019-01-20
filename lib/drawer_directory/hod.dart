@@ -21,6 +21,7 @@ class _HodState extends State<Hod> {
       appBar: AppBar(title: Text(this.dept),
         backgroundColor: Colors.red,
       ),
+      backgroundColor: Colors.red[50],
     );
   }
 }

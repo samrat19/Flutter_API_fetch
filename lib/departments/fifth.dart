@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_app_json_local/doctor_details.dart';
+import 'package:flutter_app_json_local/doctorDetails.dart';
 import 'package:flutter_app_json_local/customWidgets/drawer.dart';
+import 'package:flutter_app_json_local/customWidgets/doctorsList.dart';
 
 class Darma extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Skin"),
-        backgroundColor: Colors.red,
-      ),
-      drawer: Drawer(
-        child: CustomDrawer(),
-      ),
+      backgroundColor: Colors.red[50],
       body : Skin(),
     );
   }
@@ -47,7 +42,7 @@ class _SkinState extends State<Skin> {
         Uri.encodeFull(url),
         headers: {"Accept": "application/json"});
 
-    print(response.body);
+//    print(response.body);
 
     setState(() {
       var convertDataToJson = json.decode(response.body);
@@ -60,58 +55,34 @@ class _SkinState extends State<Skin> {
 
   @override
   Widget build(BuildContext context) {
-    if(isdataloaed == false){
-      return Scaffold(
-        backgroundColor: Colors.white,
-        body: new Center(
-          child: CircularProgressIndicator(backgroundColor: Colors.deepPurple,strokeWidth: 6.0,),
+    return Container(
+      color: Colors.white70,
+      child: isdataloaed ? ListView.builder(
+        itemCount: data == null ? 0 : data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            child: CustomDoctorTile(data[index]['name']),
+            onTap: () {
+              String name = data[index]['name'];
+              String desig = data[index]['Designation'];
+              String degree = data[index]['Degree'];
+              String dept = data[index]['Dept'];
+              String expo = data[index]['expo'];
+              String date = data[index]['date'];
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      DetailsPart(name, desig, degree, dept, expo,date)
+              )
+              );
+            },
+          );
+        },
+      ) : Center(
+        child: CircularProgressIndicator(
+          backgroundColor: Colors.red,
+          strokeWidth: 6.0,
         ),
-      );
-    }else{
-      return new Scaffold(
-        body: ListView.builder(
-          itemCount: data == null ? 0 : data.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              child: new Center(
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    new Row(
-                      children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: Colors.blueGrey,
-                          child: Icon(Icons.person),
-                        ),
-                        new Card(
-                          child: new Container(
-                            child: new Text(
-                              data[index]['name'],
-                              style: TextStyle(color: Colors.teal, fontSize: 25.0),
-                            ),
-                            padding: EdgeInsets.all(20.0),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              onTap: () {
-                String name = data[index]['name'];
-                String desig = data[index]['Designation'];
-                String degree = data[index]['Degree'];
-                String dept = data[index]['Dept'];
-                String expo = data[index]['expo'];
-                String date = data[index]['date'];
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                        DetailsPart(name, desig, degree, dept, expo,date)));
-              },
-            );
-          },
-        ),
-      );
-    }
+      ),
+    );
   }
 }

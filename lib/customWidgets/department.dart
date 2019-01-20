@@ -9,20 +9,24 @@ class CustomDepartment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-//    double _height = MediaQuery.of(context).size.height * 0.8;
-
+    
     return Container(
       margin: EdgeInsets.all(20.0),
       padding: EdgeInsets.all(10.0),
-//      height: _height,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        gradient: LinearGradient(
+          colors: [Colors.red, Colors.pink],
+        ),
+        borderRadius: BorderRadius.circular(10.0)
+      ),
       child: Column(
         children: <Widget>[
           Text(
             _title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.red,
+              color: Colors.white,
               fontSize: 24.0,
             ),
           ),
@@ -32,7 +36,7 @@ class CustomDepartment extends StatelessWidget {
             softWrap: true,
             textAlign: TextAlign.start,
             style: TextStyle(
-              color: Colors.redAccent,
+              color: Colors.white70,
               fontSize: 16.0,
             ),
           ),

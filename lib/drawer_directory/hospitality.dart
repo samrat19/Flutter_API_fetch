@@ -22,6 +22,7 @@ class _HospitalityState extends State<Hospitality> {
         title: Text(this.dept),
         backgroundColor: Colors.red,
       ),
+      backgroundColor: Colors.red[50],
       body: ListView(
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
@@ -67,7 +68,7 @@ class _HospitalityState extends State<Hospitality> {
     return Text(
       string,
       style: TextStyle(
-        color: Colors.red[900],
+        color: Colors.red[700],
         fontWeight: FontWeight.bold,
         fontSize: 20.0,
       ),

@@ -23,12 +23,12 @@ class _BranchesState extends State<Branches> {
       appBar: AppBar(title: Text(this.dept),
         backgroundColor: Colors.red,
       ),
+      backgroundColor: Colors.red[50],
       body: ListView(
         children: <Widget>[
-          CustomPartner("Techno India University"),
-          CustomPartner("Coco Cola"),
-          CustomPartner("Royal Stag"),
-          CustomPartner("Jonny Walker"),
+          CustomPartner("Techno India University", "Technology Enabled Learning", Icons.business),
+          CustomPartner("Abbott", "Healthy Possibilities", Icons.healing),
+          CustomPartner("Jonny Walker", "Keep Walking", Icons.directions_walk),
         ],
       ),
     );
