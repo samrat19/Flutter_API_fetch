@@ -1,6 +1,6 @@
 # Heath Care
 
-A new Flutter application.
+Health Care Application integrated with Firebass and API Fetch. 
 
 ## Splash Screen
 
